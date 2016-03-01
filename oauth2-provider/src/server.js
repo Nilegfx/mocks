@@ -175,7 +175,7 @@ server.post('/access_token', checkClientCredentials, function(req, res) {
  */
 
 server.get('/tokeninfo', function(req,res) {
-    var requestedToken = req.query.access_token;
+    var requestedToken = (req.headers.authorization) ? req.headers.authorization.split(' ')[1] : req.query.access_token;
     if (!requestedToken) {
         return res
                 .status(400)
