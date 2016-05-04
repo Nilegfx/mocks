@@ -8,6 +8,7 @@ RUN npm install express@4.12.4
 RUN npm install jade@1.10.0
 RUN npm install node-uuid@1.4.3
 
+COPY /scm-source.json /
 COPY /src/ /www/
 
 WORKDIR /www/
