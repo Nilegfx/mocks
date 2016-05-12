@@ -8,4 +8,4 @@ Mocked services needed for STUPS infrastructure:
 
 Every mock should be available as a runnable Docker image:
 
-    $ docker run stups/mock-team-service
+    $ docker run registry.opensource.zalan.do/stups/mock-team-service:0.1
