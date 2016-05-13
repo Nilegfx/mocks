@@ -123,7 +123,10 @@ function checkClientCredentials(req, res, next) {
         })) {
             next();
         } else {
-            return res.status(401).send();
+            return res.status(401).send({
+                error: 'invalid_client',
+                error_description: 'Client authentication failed'
+            });
         }
     } else {
         next();
@@ -165,7 +168,10 @@ server.post('/access_token', checkClientCredentials, function(req, res) {
                 token_type: 'Bearer'
             });
         } else {
-            res.status(401).send();
+            res.status(401).send({
+                error: 'invalid_grant',
+                error_description: 'The provided access grant is invalid, expired, or revoked.'
+            });
         }
     }
 });
