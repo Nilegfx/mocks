@@ -14,7 +14,7 @@ With node
 
 With Docker
 
-    docker run stups/mock-token-service
+    docker run registry.opensource.zalan.do/stups/mock-token-service:0.1
 
 ### Accepted environment variables
 

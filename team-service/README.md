@@ -14,11 +14,11 @@ With node
 
 With Docker
 
-    docker run stups/mock-team-service
+    docker run registry.opensource.zalan.do/stups/mock-team-service:0.1
 
 For the docker client to be able to read the CSV files, you have to make them accessible via a volume:
 
-    docker run -d -e USER_SOURCE=user.csv -e TEAM_SOURCE=team.csv -e DATA_DIR=/data -p 3001:3001 -v /data:<DATA_DIR> stups/mock-team-service
+    docker run -d -e USER_SOURCE=user.csv -e TEAM_SOURCE=team.csv -e DATA_DIR=/data -p 3001:3001 -v /data:<DATA_DIR> registry.opensource.zalan.do/stups/mock-team-service:0.1
 
 ### Accepted environment variables
 

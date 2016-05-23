@@ -12,9 +12,7 @@ With node
 
 With Docker
 
-    docker run -it -p 3000:3000 -e CLIENTS=c1=s1 -e USERS=u1=p1 stups/mock-oauth2-provider
-
-You can find the [latest Docker image on Docker Hub](https://hub.docker.com/r/stups/mock-oauth2-provider/tags/).
+    docker run -it -p 3000:3000 -e CLIENTS=c1=s1 -e USERS=u1=p1 registry.opensource.zalan.do/stups/mock-oauth2-provider:0.1
 
 ### Accepted environment variables
 
