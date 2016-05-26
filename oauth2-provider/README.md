@@ -20,6 +20,7 @@ With Docker
 * `USERS`: Needed for the `password` grant. Same format as `CLIENTS`.
 * `DEFAULT_REALM`: Default realm to use if none was specified (default is "employees").
 * `DEFAULT_UID`: Default uid to use if none was specified (default is "testUser").
+* `SKIP_CONSENT`: Set to `true` if you want to skip the Yes/No consent screen. Useful for testing
 
 ## API
 
