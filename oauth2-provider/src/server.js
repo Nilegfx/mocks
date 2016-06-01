@@ -9,7 +9,8 @@ var express = require('express'),
     PENDING_CONSENT = {},
     CLIENTS,
     USERS,
-    DEFAULT_REALM;
+    DEFAULT_REALM,
+    SKIP_CONSENT;
 
 // CLIENTS = <client_id>=<client_secret>,<client_id>=<client_secret>
 if (!process.env.CLIENTS) {
@@ -53,6 +54,7 @@ if (!process.env.USERS) {
 
 DEFAULT_REALM = process.env.DEFAULT_REALM || 'employees';
 DEFAULT_UID = process.env.DEFAULT_UID || 'testUser';
+SKIP_CONSENT = (procees.env.SKIP_CONSENT === 'true');
 
 function generateToken(uid, realm, scope) {
     var token = uuid.v4();
@@ -292,10 +294,33 @@ server.get('/authorize', function(req, res) {
     }
 
     PENDING_CONSENT[req.query.state] = req.query;
-    res.render('consent', {
-        scope: req.query.scope ? req.query.scope.split(' ') : [],
-        state: req.query.state
-    });
+
+    if (SKIP_CONSENT) {
+        var state = req.body.state;
+        if (!state) {
+            res.render('error', {
+                message: 'Unknown pending consent'
+            });
+            return;
+        }
+        var consentRequest = PENDING_CONSENT[req.query.state],
+            token = generateToken(null, null, req.body.scope ? req.body.scope.split(',') : []),
+            success = {
+                access_token: token.access_token,
+                token_type: 'Bearer',
+                expires_in: (token.expiration_date - Date.now()) / 1000,
+                state: state
+            };
+
+        delete PENDING_CONSENT[req.query.state];
+
+        res.redirect(301, consentRequest.redirect_uri + '#' + querystring.stringify(success));
+    } else {
+        res.render('consent', {
+            scope: req.query.scope ? req.query.scope.split(' ') : [],
+            state: req.query.state
+        });
+    }
 });
 
 server.get('/status', function(req, res) {
