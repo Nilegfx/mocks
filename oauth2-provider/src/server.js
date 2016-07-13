@@ -54,7 +54,7 @@ if (!process.env.USERS) {
 
 DEFAULT_REALM = process.env.DEFAULT_REALM || 'employees';
 DEFAULT_UID = process.env.DEFAULT_UID || 'testUser';
-SKIP_CONSENT = (procees.env.SKIP_CONSENT === 'true');
+SKIP_CONSENT = (process.env.SKIP_CONSENT === 'true');
 
 function generateToken(uid, realm, scope) {
     var token = uuid.v4();
