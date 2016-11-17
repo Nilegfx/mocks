@@ -42,4 +42,6 @@ Example usage to generate a new access token:
 
 ## Building
 
-    docker build -t stups/mock-oauth2-provider .
+* Run `npm install` in the oauth2 provider root directory
+* Run `npm run scm` to create the scm-source.json file
+* Run `docker build -t stups/mock-oauth2-provider .` to build the image.
