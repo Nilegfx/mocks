@@ -4,11 +4,12 @@
   "description": "Mocked OAuth2 authorization server",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "scm": "scm-source > scm-source.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zalando-stups/mocks.git"
+    "url": "git+https://github.com/zalando-incubator/mocks.git"
   },
   "keywords": [
     "oauth2",
@@ -19,14 +20,15 @@
   "author": "Nikolaus Piccolotto <nikolaus.piccolotto@zalando.de>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/zalando-stups/mocks/issues"
+    "url": "https://github.com/zalando-incubator/mocks/issues"
   },
-  "homepage": "https://github.com/zalando-stups/mocks#readme",
+  "homepage": "https://github.com/zalando-incubator/mocks#readme",
   "dependencies": {
     "basic-auth": "^1.0.1",
     "body-parser": "^1.12.4",
     "express": "^4.12.4",
     "jade": "^1.10.0",
-    "node-uuid": "^1.4.3"
+    "node-uuid": "^1.4.3",
+    "node-scm-source": "^0.2.0"
   }
 }
