@@ -13,4 +13,4 @@ COPY /src/ /www/
 
 WORKDIR /www/
 CMD node server.js
-EXPOSE 3000
+EXPOSE 7002

@@ -254,6 +254,7 @@ server.post('/accept', function(req, res) {
         // FIXME make a login form, check credentials und use uid here
         token = generateToken(null, null, req.body.scope ? req.body.scope.split(',') : []),
         success = {
+            scopes: req.body.scope,
             access_token: token.access_token,
             token_type: 'Bearer',
             expires_in: (token.expiration_date - Date.now()) / 1000,
@@ -327,4 +328,4 @@ server.get('/status', function(req, res) {
    res.sendStatus(200);
 });
 
-server.listen(3000);
+server.listen(7002);

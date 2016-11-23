@@ -12,7 +12,7 @@ With node
 
 With Docker
 
-    docker run -it -p 3000:3000 -e CLIENTS=c1=s1 -e USERS=u1=p1 registry.opensource.zalan.do/stups/mock-oauth2-provider:0.1
+    docker run -it -p 7002:7002 -e CLIENTS=c1=s1 -e USERS=u1=p1 registry.opensource.zalan.do/stups/mock-oauth2-provider:0.1
 
 ### Accepted environment variables
 
@@ -38,7 +38,7 @@ Example usage to generate a new access token:
     }
     EOF
 
-    $ curl -X POST -u my-client-id:my-client-secret -d @request.json -H Content-Type:application/json "http://localhost:3000/access_token?realm=services"
+    $ curl -X POST -u my-client-id:my-client-secret -d @request.json -H Content-Type:application/json "http://localhost:7002/access_token?realm=services"
 
 ## Building
 

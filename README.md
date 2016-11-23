@@ -1,3 +1,9 @@
+This is just a copy of https://github.com/zalando-incubator/mocks
+changes: 
+* OAuth2 Provider:
+    - use port **7002** other than the commonly used 3000!
+    - send **scope** back along with the token and rest of info
+
 # mocks
 Mocked services needed for STUPS infrastructure:
 
